@@ -35,7 +35,7 @@ class ExampleApp(QtWidgets.QMainWindow, ui_main.Ui_MainWindow):
         self.ctrl = control.control()
 
         # model object
-        iniPos = [0, 45, -45]
+        iniPos = [0, 60, -45]
         self.mdl = model.model([iniPos[0] * pi / 180, iniPos[1] * pi / 180, iniPos[2] * pi / 180])
         self.gripRef = None
         self.jointRef = None
@@ -69,13 +69,13 @@ class ExampleApp(QtWidgets.QMainWindow, ui_main.Ui_MainWindow):
 
                 thdd = self.mdl.dynamics(tau)
                
-                thdd = tau
+                # thdd = tau
             else:
                 self.mdl.thd = np.array([[0, 0, 0]]).transpose()
                 thdd = np.array([[0, 0, 0]]).transpose()
             
-            print("thdd")
-            print(thdd)
+            # print("thdd")
+            # print(thdd)
             self.mdl.integrate(thdd)
 
             if tm > 0.1:
